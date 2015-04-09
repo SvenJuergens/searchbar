@@ -16,16 +16,15 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 
-define(searchbar_TYPE_NORMAL, 0);
-define(searchbar_TYPE_TYPOSCRIPT, 1);
-define(searchbar_TYPE_FUNCTIONS, 2);
-
 class tx_searchbar_eID {
+
+	const TYPE_NORMAL     = 0;
+	const TYPE_TYPOSCRIPT = 1;
+	const TYPE_FUNCTIONS  = 2;
 
 	public $q;
 	public $table;
 	public $enableFields;
-
 	public $extensionConfiguration;
 
 	public function init() {
@@ -91,9 +90,9 @@ class tx_searchbar_eID {
 		unset($this->q['0']);
 		$urlPart = '';
 
-		if ($row['itemtype'] == searchbar_TYPE_TYPOSCRIPT) {
+		if ($row['itemtype'] == self::TYPE_TYPOSCRIPT) {
 			$urlPart = $this->getTypoScriptCode($row, $this->q);
-		} elseif ($row['itemtype'] == searchbar_TYPE_NORMAL) {
+		} elseif ($row['itemtype'] == self::TYPE_NORMAL) {
 			$urlPart = implode(
 				$row['glue'],
 				$this->q
@@ -110,8 +109,7 @@ class tx_searchbar_eID {
 
 		}
 
-		if ($row['itemtype'] == searchbar_TYPE_FUNCTIONS) {
-			$file = '';
+		if ($row['itemtype'] == self::TYPE_FUNCTIONS) {
 			$file = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][$row['additionalfunctions']]['filePath'];
 
 			if (is_file($file)) {
@@ -149,7 +147,6 @@ class tx_searchbar_eID {
 			'',
 			'1'
 		);
-
 		return $arrRow;
 	}
 
