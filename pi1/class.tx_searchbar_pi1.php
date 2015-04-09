@@ -186,7 +186,7 @@ class tx_searchbar_pi1 extends tslib_pibase {
     public function getSearch_icon($image, $ext) {
 
         if (empty($image)) {
-            $pathWithImage = t3lib_extmgm::siteRelPath($this->extKey) . 'Resources/images/TYPO3_logo.png';
+            $pathWithImage = t3lib_extmgm::siteRelPath($this->extKey) . 'Resources/Public/Images/TYPO3_logo.png';
         } else {
             $pathWithImage = 'uploads/tx_searchbar/' . $image;
         }

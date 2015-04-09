@@ -2,7 +2,7 @@
 showHelp = 1
 
 # cat=basic; type=string; label= LLL:EXT:searchbar/locallang.xml:helpTemplateFile
-helpTemplateFile = typo3conf/ext/searchbar/Resources/templates/helpTemplateFile.html
+helpTemplateFile = typo3conf/ext/searchbar/Resources/Private/Templates/helpTemplateFile.html
 
 # cat=basic; type=boolean; label= LLL:EXT:searchbar/locallang.xml:useDefaultHotKey
 useDefaultHotKey = 0

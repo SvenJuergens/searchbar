@@ -1,5 +1,5 @@
 plugin.tx_searchbar_pi1{
-	templateFile = 'EXT:searchbar/Resources/templates/template.html';
+	templateFile = 'EXT:searchbar/Resources/Private/Templates/template.html';
 	typeNum = {$searchbar.typeNum}
 }
 
