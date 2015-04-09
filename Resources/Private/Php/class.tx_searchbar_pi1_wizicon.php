@@ -25,7 +25,7 @@ class tx_searchbar_pi1_wizicon {
 	 *
 	 * @var string
 	 */
-	protected $locallangPath = 'LLL:EXT:searchbar/Resources/Private/Language/locallang.xlf:';
+	protected $locallangPath = 'LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:';
 
 	/**
 	 * Processing the wizard items array

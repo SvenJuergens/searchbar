@@ -1,11 +1,11 @@
-# cat=basic; type=boolean; label= LLL:EXT:searchbar/locallang.xml:showHelp
+# cat=basic; type=boolean; label= LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:showHelp
 showHelp = 1
 
-# cat=basic; type=string; label= LLL:EXT:searchbar/locallang.xml:helpTemplateFile
+# cat=basic; type=string; label= LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:helpTemplateFile
 helpTemplateFile = typo3conf/ext/searchbar/Resources/Private/Templates/helpTemplateFile.html
 
-# cat=basic; type=boolean; label= LLL:EXT:searchbar/locallang.xml:useDefaultHotKey
+# cat=basic; type=boolean; label= LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:useDefaultHotKey
 useDefaultHotKey = 0
 
-# cat=basic; type=string; label= LLL:EXT:searchbar/locallang.xml:defaultHotKey
+# cat=basic; type=string; label= LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:defaultHotKey
 defaultHotKey =
