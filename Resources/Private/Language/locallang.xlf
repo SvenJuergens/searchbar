@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-09T19:54:42Z" product-name="">
+		<header/>
+		<body>
+			<trans-unit id="searchproviderlinktext" xml:space="preserve">
+				<source>Add Searchprovider</source>
+			</trans-unit>
+			<trans-unit id="contentProviderText" xml:space="preserve">
+				<source>Klick at ###LINK### to add this Page to your Searchengine</source>
+			</trans-unit>
+			<trans-unit id="missingtypoScript" xml:space="preserve">
+				<source>Missing TypoScript Configuration.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
