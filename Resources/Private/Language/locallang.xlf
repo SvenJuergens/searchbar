@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-09T10:57:56Z" product-name="">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" xml:space="preserve">
+				<source>Add a Browser Search Bar</source>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve">
+				<source>add a link for setting a Search Bar</source>
+			</trans-unit>
+			<trans-unit id="showHelp" xml:space="preserve">
+				<source>Show Help: Show all entries, if hotKey not found in database</source>
+			</trans-unit>
+			<trans-unit id="helpTemplateFile" xml:space="preserve">
+				<source>Help TemplateFile: use this templateFile to show all entries</source>
+			</trans-unit>
+			<trans-unit id="useDefaultHotKey" xml:space="preserve">
+				<source>Activate to use a Default Hotkey: If yue use it, the Default Hotkey is used instead of showing the Help Section</source>
+			</trans-unit>
+			<trans-unit id="defaultHotKey" xml:space="preserve">
+				<source>Default Hotkey: For a Default SearchEngine you don't need to type in the HotKey</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

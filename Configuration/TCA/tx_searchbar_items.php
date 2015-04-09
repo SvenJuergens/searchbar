@@ -5,7 +5,7 @@ if (!defined('TYPO3_MODE')) {
 
 return array (
 	'ctrl' => array (
-		'title'     => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items',		
+		'title'     => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items',		
 		'label'     => 'title',
 		'tstamp'    => 'tstamp',
 		'crdate'    => 'crdate',
@@ -26,7 +26,7 @@ return array (
 	'columns' => array (
 		'hidden' => array (		
 			'exclude' => 1,
-			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
+			'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
 			'config'  => array (
 				'type'    => 'check',
 				'default' => '0'
@@ -34,7 +34,7 @@ return array (
 		),
 		'starttime' => array (		
 			'exclude' => 1,
-			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.starttime',
+			'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
 			'config'  => array (
 				'type'     => 'input',
 				'size'     => '8',
@@ -46,7 +46,7 @@ return array (
 		),
 		'endtime' => array (		
 			'exclude' => 1,
-			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.endtime',
+			'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
 			'config'  => array (
 				'type'     => 'input',
 				'size'     => '8',
@@ -62,7 +62,7 @@ return array (
 		),
 		'title' => array (
 			'exclude' => 1,
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.title',
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.title',
 			'config' => array (
 				'type' => 'input',
 				'eval' => 'required'
@@ -70,7 +70,7 @@ return array (
 		),
 		'hotkey' => array (		
 			'exclude' => 1,		
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.hotkey',		
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.hotkey',		
 			'config' => array (
 				'type' => 'input',	
 				'size' => '5',	
@@ -79,7 +79,7 @@ return array (
 		),
 		'hideinfe' => array (
 			'exclude' => 1,
-			'label'   => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.hideinfe',
+			'label'   => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.hideinfe',
 			'config'  => array (
 				'type'    => 'check',
 				'default' => '0'
@@ -87,7 +87,7 @@ return array (
 		),
 		'glue' => array (
 			'exclude' => 1,
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.glue',
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.glue',
 			'config' => array (
 				'type' => 'input',
 				'size' => '3',
@@ -97,7 +97,7 @@ return array (
 		),
 		'searchurl' => array (		
 			'exclude' => 1,		
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.searchurl',		
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.searchurl',		
 			'config' => array (
 				'type' => 'input',	
 				'size' => '30',
@@ -105,7 +105,7 @@ return array (
 		),
 		'typoscript' => array (		
 			'exclude' => 1,		
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.typoscript',		
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.typoscript',		
 			'config' => array (
 				'type' => 'text',
 				'wrap' => 'OFF',
@@ -115,13 +115,13 @@ return array (
 		),
 		'itemtype' => array (		
 			'exclude' => 1,		
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.itemtype',		
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.itemtype',		
 			'config' => array (
 				'type' => 'select',
 				'items' => array (
-					array('LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.itemtype.I.0', '0'),
-					array('LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.itemtype.I.1', '1'),
-					array('LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.itemtype.I.2', '2'),
+					array('LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.itemtype.I.0', '0'),
+					array('LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.itemtype.I.1', '1'),
+					array('LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.itemtype.I.2', '2'),
 				),
 				'size' => 1,	
 				'maxitems' => 1,
@@ -129,7 +129,7 @@ return array (
 		),
 		'additionalfunctions' => array (		
 			'exclude' => 1,		
-			'label' => 'LLL:EXT:searchbar/locallang_db.xml:tx_searchbar_items.additionalfunctions',		
+			'label' => 'LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tx_searchbar_items.additionalfunctions',		
 			'config' => array (
 				'type' => 'select',
 				'items' => array (),
