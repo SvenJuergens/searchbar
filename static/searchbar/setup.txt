@@ -1,0 +1,20 @@
+plugin.tx_searchbar_pi1{
+	templateFile = 'EXT:searchbar/Resources/templates/template.html';
+	typeNum = {$searchbar.typeNum}
+}
+
+searchbar = PAGE
+searchbar {
+  typeNum = {$searchbar.typeNum}
+
+  	10 < plugin.tx_searchbar_pi1
+
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders = Content-type:application/xml
+    xhtml_cleaning = 0
+    admPanel = 0
+	disablePrefixComment = 1
+  }
+ 
+}

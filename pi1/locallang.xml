@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_searchbar_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="searchproviderlinktext">Add Searchprovider</label>
+            <label index="contentProviderText">Klick at ###LINK### to add this Page to your Searchengine</label>
+            <label index="missingtypoScript">Missing TypoScript Configuration.</label>
+        </languageKey>
+		<languageKey index="de" type="array">
+            <label index="searchproviderlinktext">hier</label>
+            <label index="missingtypoScript">Es fehlt die TypoScript Konfiguration für die "Universal Search Bar", füge sie bitte hinzu!</label>
+			<label index="contentProviderText">Klicke ###LINK### um deinem Browser eine neue Suche hinzuzufügen.</label>
+		</languageKey>
+	</data>
+</T3locallang>
