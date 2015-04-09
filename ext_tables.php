@@ -23,8 +23,14 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi
 ),'list_type');
 
 
-if (TYPO3_MODE == 'BE') {
-	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_searchbar_pi1_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'pi1/class.tx_searchbar_pi1_wizicon.php';
+if ( TYPO3_MODE == 'BE') {
+
+	/***************
+	 * Wizard pi1
+	 */
+	$GLOBALS['TBE_MODULES_EXT']['xMOD_db_new_content_el']['addElClasses']['tx_searchbar_pi1_wizicon'] =
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Resources/Private/Php/class.tx_searchbar_pi1_wizicon.php';
+
 }
 
 /***************
