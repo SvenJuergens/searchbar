@@ -18,7 +18,7 @@ return array (
 			'starttime' => 'starttime',	
 			'endtime' => 'endtime',
 		),
-		'iconfile'  => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('searchbar').'icon_tx_searchbar_items.gif',
+		'iconfile'  => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('searchbar').'Resources/Public/Icons/icon_tx_searchbar_items.gif',
 	),
 	'interface' => array (
 		'showRecordFieldList' => 'hidden,starttime,endtime,hotkey,searchurl,typoscript,itemtype,additionalfunctions'
