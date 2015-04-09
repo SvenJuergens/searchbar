@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 if (TYPO3_MODE == 'BE')    {
-    include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('searchbar').'Classes/class.tx_searchbar_functions_field.php');
+    include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'Classes/class.tx_searchbar_functions_field.php');
 }
 
 
@@ -36,5 +36,5 @@ if ( TYPO3_MODE == 'BE') {
 /***************
  * Default TypoScript
  */
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY,'Configuraton/TypoScript/', 'Universal Searchbar');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY,'Configuration/TypoScript/', 'Universal Searchbar');
 
