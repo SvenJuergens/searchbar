@@ -256,5 +256,3 @@ if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['
 $SOBE = t3lib_div::makeInstance('tx_searchbar_eID');
 $SOBE->init();
 $SOBE->main();
-
-?>

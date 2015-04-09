@@ -36,5 +36,3 @@ class tx_searchbar_ip{
 	}
 
 }
-
-?>

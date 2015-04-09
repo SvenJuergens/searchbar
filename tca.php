@@ -136,4 +136,3 @@ $TCA['tx_searchbar_items'] = array (
 		'2' => array('showitem' => 'glue,hideinfe')
 	)
 );
-?>

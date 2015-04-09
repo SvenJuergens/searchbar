@@ -40,5 +40,3 @@ class tx_searchbar_functions_field {
         }
     }
 }
-
-?>

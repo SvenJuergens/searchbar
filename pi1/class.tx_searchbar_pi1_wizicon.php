@@ -82,5 +82,3 @@ class tx_searchbar_pi1_wizicon {
 if (defined('TYPO3_MODE') && $GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/searchbar/pi1/class.tx_searchbar_pi1_wizicon.php'])	{
 	include_once($GLOBALS['TYPO3_CONF_VARS'][TYPO3_MODE]['XCLASS']['ext/searchbar/pi1/class.tx_searchbar_pi1_wizicon.php']);
 }
-
-?>

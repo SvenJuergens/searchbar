@@ -17,5 +17,3 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions']['tx_s
 	'title' => 'Show Current IP',
 	'filePath' => t3lib_extMgm::extPath($_EXTKEY) . 'Classes/class.tx_searchbar_ip.php'
 	);
-
-?>

@@ -11,4 +11,3 @@ return array(
 	'tx_searchbar_pi1' => $extensionPath . 'pi1/class.tx_searchbar_pi1.php',
 	'tx_searchbar_pi1_wizicon' => $extensionPath . 'pi1/class.tx_searchbar_pi1_wizicon.php',
 );
-?>
