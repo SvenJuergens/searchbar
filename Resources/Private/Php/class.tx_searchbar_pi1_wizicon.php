@@ -35,7 +35,7 @@ class tx_searchbar_pi1_wizicon {
 	 */
 	public function proc($wizardItems)	{
 		$wizardItems['plugins_tx_searchbar_pi1'] = array(
-			'icon' => TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('searchbar').'pi1/ce_wiz.gif',
+			'icon' => TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('searchbar').'Resources/Public/Icons/ce_wiz.gif',
 			'title' =>  $GLOBALS['LANG']->sL( $this->locallangPath . 'pi1_title', TRUE ),
 			'description' => $GLOBALS['LANG']->sL( $this->locallangPath . 'pi1_plus_wiz_description', TRUE), 
 			'params'=>'&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=searchbar_pi1'
