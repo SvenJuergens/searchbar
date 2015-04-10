@@ -1,5 +1,6 @@
 <?php
 namespace SvenJuergens\Searchbar\Eid;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -16,6 +17,7 @@ namespace SvenJuergens\Searchbar\Eid;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Frontend\Utility\EidUtility;
+use TYPO3\CMS\Core\Utility\HttpUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Html\HtmlParser;
 
@@ -114,14 +116,14 @@ class MainEid {
 		if ($row['itemtype'] == self::TYPE_FUNCTIONS) {
 			$file = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][$row['additionalfunctions']]['filePath'];
 
-			if (is_file($file)) {
+			if (is_file($file) && GeneralUtility::validPathStr($file)) {
 				require_once $file;
 				$userfile = GeneralUtility::makeInstance($row['additionalfunctions']);
 				$url = $userfile->execute($row, $this->q);
 			}
 
 		}
-		\TYPO3\CMS\Core\Utility\HttpUtility::redirect( $url );
+		HttpUtility::redirect( $url );
 	}
 
 	public function getTypoScriptCode(&$row) {

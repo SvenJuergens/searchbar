@@ -133,7 +133,8 @@ return array (
 			'config' => array (
 				'type' => 'select',
 				'items' => array (),
-				'itemsProcFunc' => 'tx_searchbar_functions_field->main',
+				//'itemsProcFunc' => 'tx_searchbar_functions_field->main',
+				'itemsProcFunc' => 'SvenJuergens\Utility\AdditionalFunctionsField->main',
 				'size' => 1,	
 				'maxitems' => 1,
 			)

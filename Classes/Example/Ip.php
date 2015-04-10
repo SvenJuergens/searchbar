@@ -1,4 +1,5 @@
 <?php
+namespace SvenJuergens\Searchbar\Example;
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -12,11 +13,10 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-class tx_searchbar_ip{
+class Ip{
 
-	function execute(&$row, &$searchEngineInput){
-
-		echo 'Your IP: ' . PHP_EOL . t3lib_div::getIndpEnv('REMOTE_ADDR');
+	public function execute( &$row, &$searchEngineInput){
+		echo 'Your IP: ' . PHP_EOL . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('REMOTE_ADDR');
 		exit;
 	}
 

@@ -1,4 +1,5 @@
 <?php
+namespace SvenJuergens\Searchbar\Utility;
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -12,14 +13,12 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-class tx_searchbar_functions_field {
+class AdditionalFunctionsField {
 
-
-    function main(&$params, &$pObj) {
-
+    public function main(&$params, &$pObj) {
         if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'])) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'] as $class => $registrationInformation) {
-                $title = isset($registrationInformation['title']) ? $registrationInformation['title'] : $class;
+                $title = isset($registrationInformation['title']) ? htmlspecialchars($registrationInformation['title']) : $class;
                 $params['items'][] = array($title, $class, '');
             }
         }
