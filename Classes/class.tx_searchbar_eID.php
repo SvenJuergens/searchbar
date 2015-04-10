@@ -151,8 +151,8 @@ class tx_searchbar_eID {
 	}
 
 	public function showHelp() {
-		$arrItems = array();
 
+		$arrItems = array();
 		if ($this->extensionConfiguration['showHelp'] == 1) {
 			$arrItems = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
 				'*',
@@ -204,17 +204,10 @@ class tx_searchbar_eID {
 
 	}
 
-	function getHtmlTemplate($filename) {
-
-		if (substr($filename, 0, 4) != 'EXT:') {
-			$filename = GeneralUtility::resolveBackPath($this->backPath . $filename);
-		} else {
-			$filename = GeneralUtility::getFileAbsFileName($filename, true, true);
-		}
+	public function getHtmlTemplate($filename) {
+		$filename = GeneralUtility::getFileAbsFileName($filename);
 		return GeneralUtility::getURL($filename);
 	}
-
-
 }
 
 // Make instance:
