@@ -21,7 +21,8 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['searchbar'] =
 
 
 // Example for adding Additional Functions to Search Bar
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions']['tx_searchbar_ip'] = array(
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions']['Ip'] = array(
 	'title' => 'Show Current IP',
-	'filePath' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/class.tx_searchbar_ip.php'
+	'filePath' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/Example/Ip.php',
+	'className' => 'SvenJuergens\\Searchbar\\Example\\Ip'
 	);

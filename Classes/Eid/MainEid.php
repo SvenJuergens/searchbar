@@ -38,7 +38,6 @@ class MainEid {
 
 	public function init() {
 
-		EidUtility::connectDB();
 		EidUtility::initTCA();
 
 		$this->extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['searchbar']);
@@ -114,12 +113,14 @@ class MainEid {
 		}
 
 		if ($row['itemtype'] == self::TYPE_FUNCTIONS) {
-			$file = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][$row['additionalfunctions']]['filePath'];
-
+			$file = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row['additionalfunctions'] ]['filePath'];
 			if (is_file($file) && GeneralUtility::validPathStr($file)) {
 				require_once $file;
-				$userfile = GeneralUtility::makeInstance($row['additionalfunctions']);
-				$url = $userfile->execute($row, $this->q);
+				$className = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row['additionalfunctions'] ]['className'];
+				if(class_exists($className)){
+					$userfile = GeneralUtility::makeInstance( $className );
+					$url = $userfile->execute($row, $this->q);
+				}
 			}
 
 		}
