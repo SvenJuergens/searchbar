@@ -1,4 +1,5 @@
 <?php
+namespace SvenJuergens\Searchbar\Eid;
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -13,30 +14,33 @@
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Frontend\Utility\EidUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Html\HtmlParser;
 
-class tx_searchbar_eID {
+class MainEid {
 
 	const TYPE_NORMAL     = 0;
 	const TYPE_TYPOSCRIPT = 1;
 	const TYPE_FUNCTIONS  = 2;
 
 	public $q;
-	public $table;
+	public $table = 'tx_searchbar_items';
 	public $enableFields;
 	public $extensionConfiguration;
 
+	public function __construct(){
+		$this->init();
+	}
+
 	public function init() {
 
-		TYPO3\CMS\Frontend\Utility\EidUtility::connectDB();
-		TYPO3\CMS\Frontend\Utility\EidUtility::initTCA();
-
+		EidUtility::connectDB();
+		EidUtility::initTCA();
 
 		$this->extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['searchbar']);
-
 		$this->q = htmlspecialchars(GeneralUtility::_GET('q'));
-
 		if (empty($this->q)) {
 			$value = GeneralUtility::_GET('tx_searchbarfrontend_pi1');
 			if (is_array($value)) {
@@ -44,12 +48,11 @@ class tx_searchbar_eID {
 			}
 		}
 
-		$this->q = GeneralUtility::trimExplode(' ', $this->q, 1);
+		$this->q = GeneralUtility::trimExplode(' ', $this->q, TRUE);
 
-		$this->table = 'tx_searchbar_items';
-		$this->enableFields = BackendUtility::BEenableFields( $this->table) . BackendUtility::deleteClause( $this->table);
+		$this->enableFields = BackendUtility::BEenableFields( $this->table ) . BackendUtility::deleteClause( $this->table );
 
-		if (strtolower($this->q[0]) == 'help') {
+		if (isset($this->q[0]) && strtolower($this->q[0]) == 'help') {
 			$this->showHelp();
 			exit;
 		}
@@ -70,7 +73,6 @@ class tx_searchbar_eID {
 
 		// get record
 		$row = $this->getRecord($this->q[0]);
-
 		if(empty($row) && $this->extensionConfiguration['useDefaultHotKey'] == 1 ){
 			$temp = array( htmlspecialchars( $this->extensionConfiguration['defaultHotKey'] ) );
 			$this->q = array_merge( $temp, $this->q );
@@ -119,7 +121,7 @@ class tx_searchbar_eID {
 			}
 
 		}
-		TYPO3\CMS\Core\Utility\HttpUtility::redirect( $url );
+		\TYPO3\CMS\Core\Utility\HttpUtility::redirect( $url );
 	}
 
 	public function getTypoScriptCode(&$row) {
@@ -184,7 +186,7 @@ class tx_searchbar_eID {
 			return 'Template not found, please check the Extension settings in ExtensionManager';
 		}
 
-		$templateSubpart = TYPO3\CMS\Core\Html\HtmlParser::getSubpart($templateCode, '###ROW###');
+		$templateSubpart = HtmlParser::getSubpart($templateCode, '###ROW###');
 
 		$alt = 0;
 		$entries = array();
@@ -195,12 +197,12 @@ class tx_searchbar_eID {
 				'###TITLE###' => htmlspecialchars($item['title']),
 				'###HOTKEY###' => htmlspecialchars($item['hotkey']),
 			);
-			$entries[] = TYPO3\CMS\Core\Html\HtmlParser::substituteMarkerArray($templateSubpart, $markerArray);
+			$entries[] = HtmlParser::substituteMarkerArray($templateSubpart, $markerArray);
 			$alt++;
 		}
 
-		$template = TYPO3\CMS\Core\Html\HtmlParser::getSubpart($templateCode, '###HELPLIST###');
-		return TYPO3\CMS\Core\Html\HtmlParser::substituteSubpart($template, '###ROW###', implode('', $entries));
+		$template = HtmlParser::getSubpart($templateCode, '###HELPLIST###');
+		return HtmlParser::substituteSubpart($template, '###ROW###', implode('', $entries));
 
 	}
 
@@ -211,6 +213,5 @@ class tx_searchbar_eID {
 }
 
 // Make instance:
-$SOBE = GeneralUtility::makeInstance('tx_searchbar_eID');
-$SOBE->init();
-$SOBE->main();
+$eid = GeneralUtility::makeInstance('SvenJuergens\\Searchbar\\Eid\\MainEid');
+$eid->main();

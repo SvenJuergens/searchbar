@@ -9,7 +9,8 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43($_EXTKEY, 'pi1/class.tx_searchbar_pi1.php', '_pi1', 'list_type', 1);
 
 // eID
-$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['searchbar'] = 'EXT:searchbar/Classes/class.tx_searchbar_eID.php';
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['searchbar'] = 
+	'EXT:searchbar/Classes/Eid/MainEid.php';
 
 
 // Example for adding Additional Functions to Search Bar
