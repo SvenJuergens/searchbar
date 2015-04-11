@@ -109,20 +109,28 @@ class MainEid {
 			);
 		} else {
 			$url = $row['searchurl'] . $urlPart;
-
 		}
 
 		if ($row['itemtype'] == self::TYPE_FUNCTIONS) {
-			$file = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row['additionalfunctions'] ]['filePath'];
-			if (is_file($file) && GeneralUtility::validPathStr($file)) {
-				require_once $file;
-				$className = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row['additionalfunctions'] ]['className'];
-				if(class_exists($className)){
-					$userfile = GeneralUtility::makeInstance( $className );
+
+			//new Option for Using Namespaced Classes
+			//and for backward compatibility
+			// so if "namespaceOfClass" exisit, it should be NameSpaced
+			$classConfig = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row['additionalfunctions'] ];
+
+			if(isset($classConfig['namespaceOfClass']) && !empty($classConfig['namespaceOfClass'])){
+				if(class_exists($classConfig['namespaceOfClass'])){
+					$userfile = GeneralUtility::makeInstance( $classConfig['namespaceOfClass'] );
+					$url = $userfile->execute($row, $this->q);
+				}
+			}else{
+				$file = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row['additionalfunctions'] ]['filePath'];
+				if (is_file($file) && GeneralUtility::validPathStr($file)) {
+					require_once $file;
+					$userfile = GeneralUtility::makeInstance( $row['additionalfunctions'] );
 					$url = $userfile->execute($row, $this->q);
 				}
 			}
-
 		}
 		HttpUtility::redirect( $url );
 	}

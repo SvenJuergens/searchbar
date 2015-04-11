@@ -24,5 +24,5 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['searchbar'] =
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions']['Ip'] = array(
 	'title' => 'Show Current IP',
 	'filePath' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Classes/Example/Ip.php',
-	'className' => 'SvenJuergens\\Searchbar\\Example\\Ip'
+	'namespaceOfClass' => 'SvenJuergens\\Searchbar\\Example\\Ip'
 	);

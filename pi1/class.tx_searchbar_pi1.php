@@ -171,7 +171,6 @@ class tx_searchbar_pi1 extends TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	}
 
 	public function getSearch_icon($image, $ext) {
-
 		if (empty($image)) {
 			$pathWithImage = ExtensionManagementUtility::siteRelPath($this->extKey) . 'Resources/Public/Images/TYPO3_logo.png';
 		} else {
@@ -192,8 +191,6 @@ class tx_searchbar_pi1 extends TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 				'ext' => $ext,
 			)
 		);
-		return GeneralUtility::getIndpEnv(TYPO3_SITE_URL) . $this->cObj->IMG_RESOURCE($imageConf);
-
+		return GeneralUtility::getIndpEnv(TYPO3_SITE_URL) .  $this->cObj->cObjGetSingle('IMG_RESOURCE', $imageConf);
 	}
-
 }
