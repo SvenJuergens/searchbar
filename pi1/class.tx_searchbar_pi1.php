@@ -38,13 +38,13 @@ class tx_searchbar_pi1 extends TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	 * @param    array        $conf: The PlugIn configuration
 	 * @return    The content that is displayed on the website
 	 */
-	function main($content, $conf) {
+	public function main($content, $conf) {
 		$this->conf = $conf;
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
 		$this->init();
 
-		if ( !is_null(GeneralUtility::_GP('type') ) 
+		if ( !is_null(GeneralUtility::_GP('type') )
 			 && ( GeneralUtility::_GP('type') == $this->conf['typeNum'] )
 		) {
 			$content = $this->getSearch();

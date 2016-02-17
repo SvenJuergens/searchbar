@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'title' => 'Universal Search Bar',
 	'description' => 'One Search Bar to rule them all... . A Search Bar "wrapper", to access all existing search engines. More on search.blue-side.de',
 	'category' => 'fe',
-	'version' => '2.0.0',
+	'version' => '2.0.1',
 	'state' => 'stable',
 	'uploadfolder' => 1,
 	'createDirs' => '',
@@ -22,16 +22,16 @@ $EM_CONF[$_EXTKEY] = array (
 	'author' => 'Sven Juergens',
 	'author_email' => 't3@blue-side.de',
 	'author_company' => '',
-	'constraints' => 
+	'constraints' =>
 	array (
-		'depends' => 
+		'depends' =>
 		array (
-			'typo3' => '6.2.0-7.1.99',
+			'typo3' => '6.2.0-7.6.99',
 		),
-		'conflicts' => 
+		'conflicts' =>
 		array (
 		),
-		'suggests' => 
+		'suggests' =>
 		array (
 		),
 	),
