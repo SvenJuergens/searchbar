@@ -12,12 +12,9 @@ namespace SvenJuergens\Searchbar\Example;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 class Ip{
-
-	public function execute( &$row, &$searchEngineInput){
-		echo 'Your IP: ' . PHP_EOL . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('REMOTE_ADDR');
-		exit;
-	}
-
+    public function execute( &$row, &$searchEngineInput){
+        echo 'Your IP: ' . PHP_EOL . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('REMOTE_ADDR');
+        exit;
+    }
 }

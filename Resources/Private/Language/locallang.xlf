@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-09T19:54:42Z" product-name="">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-03-11T14:21:30Z" product-name="searchbar">
 		<header/>
 		<body>
-			<trans-unit id="searchproviderlinktext" xml:space="preserve">
-				<source>Add Searchprovider</source>
+			<trans-unit id="tx_searchbar_domain_model_items">
+				<source>Items</source>
 			</trans-unit>
-			<trans-unit id="contentProviderText" xml:space="preserve">
-				<source>Klick at ###LINK### to add this Page to your Searchengine</source>
+			<trans-unit id="tx_searchbar_domain_model_items.title">
+				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="missingtypoScript" xml:space="preserve">
-				<source>Missing TypoScript Configuration.</source>
+			<trans-unit id="tx_searchbar_domain_model_items.hotkey">
+				<source>Hotkey</source>
+			</trans-unit>
+			<trans-unit id="tx_searchbar_domain_model_items.glue">
+				<source>Glue</source>
+			</trans-unit>
+			<trans-unit id="tx_searchbar_domain_model_items.searchurl">
+				<source>Searchurl</source>
+			</trans-unit>
+			<trans-unit id="tx_searchbar_domain_model_items.typoscript">
+				<source>Typoscript</source>
+			</trans-unit>
+			<trans-unit id="tx_searchbar_domain_model_items.itemtype">
+				<source>Itemtype</source>
+			</trans-unit>
+			<trans-unit id="tx_searchbar_domain_model_items.additionalfunctions">
+				<source>Additionalfunctions</source>
+			</trans-unit>
+			<trans-unit id="tx_searchbar_domain_model_items.hideinfe">
+				<source>Hideinfe</source>
 			</trans-unit>
 		</body>
 	</file>

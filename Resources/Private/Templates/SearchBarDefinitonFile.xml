@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>{settings.pluginName}</ShortName>
+<Description>{settings.pluginDescription}</Description>
+<Image height="16" width="16" type="image/png">{defaultPng}</Image>
+<Image height="64" width="64" type="image/jpg">{defaultJpg}</Image>
+<Url type="text/html" method="get" template="{searchBarLink} "/>
+</OpenSearchDescription>

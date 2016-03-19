@@ -1,0 +1,51 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Listing for Items</h1>
+
+<f:flashMessages />
+
+<table  class="tx_searchbar" >
+	<tr>
+		<th><f:translate key="tx_searchbar_domain_model_items.title" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.hotkey" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.glue" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.searchurl" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.typoscript" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.itemtype" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.additionalfunctions" /></th>
+		<th><f:translate key="tx_searchbar_domain_model_items.hideinfe" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{itemss}" as="items">
+		<tr>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.title}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.hotkey}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.glue}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.searchurl}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.typoscript}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.itemtype}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.additionalfunctions}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{items : items}"> {items.hideinfe}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{items : items}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{items : items}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Items</f:link.action>
+</f:section>

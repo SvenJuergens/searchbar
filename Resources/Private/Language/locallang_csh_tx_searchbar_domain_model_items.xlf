@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-03-11T14:21:30Z" product-name="searchbar">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="hotkey.description">
+				<source>hotkey</source>
+			</trans-unit>
+			<trans-unit id="glue.description">
+				<source>glue</source>
+			</trans-unit>
+			<trans-unit id="searchurl.description">
+				<source>searchurl</source>
+			</trans-unit>
+			<trans-unit id="typoscript.description">
+				<source>typoscript</source>
+			</trans-unit>
+			<trans-unit id="itemtype.description">
+				<source>itemtype</source>
+			</trans-unit>
+			<trans-unit id="additionalfunctions.description">
+				<source>additionalfunctions</source>
+			</trans-unit>
+			<trans-unit id="hideinfe.description">
+				<source>hideinfe</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

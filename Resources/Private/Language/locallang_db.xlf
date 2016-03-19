@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-09T10:58:10Z" product-name="">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-03-11T14:21:30Z" product-name="searchbar">
 		<header/>
 		<body>
 			<trans-unit id="tt_content.pi_flexform.sheet_general" xml:space="preserve">
@@ -15,23 +15,23 @@
 			<trans-unit id="tt_content.pi_flexform.field_PluginIcon" xml:space="preserve">
 				<source>Plugin Icon</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items" xml:space="preserve">
-				<source>Search Bar Items</source>
+			<trans-unit id="tx_searchbar_domain_model_items">
+				<source>Items</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.title" xml:space="preserve">
+			<trans-unit id="tx_searchbar_domain_model_items.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.hotkey" xml:space="preserve">
+			<trans-unit id="tx_searchbar_domain_model_items.hotkey">
 				<source>Hotkey</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.searchurl" xml:space="preserve">
-				<source>URL for search</source>
+			<trans-unit id="tx_searchbar_domain_model_items.glue">
+				<source>Glue</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.hideinfe" xml:space="preserve">
-				<source>Hide in Help</source>
+			<trans-unit id="tx_searchbar_domain_model_items.searchurl">
+				<source>Searchurl</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.typoscript" xml:space="preserve">
-				<source>TypoScript</source>
+			<trans-unit id="tx_searchbar_domain_model_items.typoscript">
+				<source>Typoscript</source>
 			</trans-unit>
 			<trans-unit id="tx_searchbar_items.itemtype.I.0" xml:space="preserve">
 				<source>Normal</source>
@@ -42,17 +42,14 @@
 			<trans-unit id="tx_searchbar_items.itemtype.I.2" xml:space="preserve">
 				<source>additional functions</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.itemtype" xml:space="preserve">
-				<source>Item Type</source>
+			<trans-unit id="tx_searchbar_domain_model_items.itemtype">
+				<source>Itemtype</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.glue" xml:space="preserve">
-				<source>Glue for search phrase</source>
+			<trans-unit id="tx_searchbar_domain_model_items.additionalfunctions">
+				<source>Additionalfunctions</source>
 			</trans-unit>
-			<trans-unit id="tx_searchbar_items.additionalfunctions" xml:space="preserve">
-				<source>additional Functions</source>
-			</trans-unit>
-			<trans-unit id="tt_content.list_type_pi1" xml:space="preserve">
-				<source>Add a Browser Search Bar</source>
+			<trans-unit id="tx_searchbar_domain_model_items.hideinfe">
+				<source>Hideinfe</source>
 			</trans-unit>
 		</body>
 	</file>
