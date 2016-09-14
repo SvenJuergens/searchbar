@@ -14,10 +14,12 @@ namespace SvenJuergens\Searchbar\Domain\Model;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * Items
  */
-class Items extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Items extends AbstractEntity
 {
 
     /**
@@ -28,7 +30,7 @@ class Items extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
-     * hotkey
+     * HotKey
      *
      * @var string
      */
@@ -42,14 +44,14 @@ class Items extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $glue = '';
 
     /**
-     * searchurl
+     * searchUrl
      *
      * @var string
      */
     protected $searchurl = '';
 
     /**
-     * typoscript
+     * TypoScript
      *
      * @var string
      */
@@ -70,7 +72,7 @@ class Items extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $additionalfunctions = '';
 
     /**
-     * hideinfe
+     * hideInFe
      *
      * @var bool
      */

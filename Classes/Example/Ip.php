@@ -1,5 +1,7 @@
 <?php
 namespace SvenJuergens\Searchbar\Example;
+
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -14,7 +16,7 @@ namespace SvenJuergens\Searchbar\Example;
  */
 class Ip{
     public function execute( &$row, &$searchEngineInput){
-        echo 'Your IP: ' . PHP_EOL . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('REMOTE_ADDR');
+        echo 'Your IP: ' . PHP_EOL . GeneralUtility::getIndpEnv('REMOTE_ADDR');
         exit;
     }
 }

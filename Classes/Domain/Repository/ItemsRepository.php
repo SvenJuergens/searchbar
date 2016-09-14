@@ -13,20 +13,20 @@ namespace SvenJuergens\Searchbar\Domain\Repository;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
+use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * The repository for Items
  */
-class ItemsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class ItemsRepository extends Repository
 {
-    public function findByHotkey( $hotkey ) {
+    public function findByHotKey( $hotKey ) {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(FALSE);
-        $query->matching( $query->equals('hotkey', $hotkey) );
+        $query->matching( $query->equals('hotkey', $hotKey) );
         return $query->execute();
     }
 
-    public function findAllHotkeys( ) {
+    public function findAllHotKeys( ) {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(FALSE);
         $query->matching(

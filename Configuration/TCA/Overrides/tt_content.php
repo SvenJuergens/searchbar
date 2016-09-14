@@ -14,6 +14,3 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['searchba
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['searchbar_pi1'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('searchbar_pi1',
     'FILE:EXT:searchbar/Configuration/FlexForms/flexform_searchbar.xml');
-
-// TypoScript
-#\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('news', 'Configuration/TypoScript', 'News');

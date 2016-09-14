@@ -15,13 +15,12 @@ namespace SvenJuergens\Searchbar\Controller;
  */
 
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use SvenJuergens\Searchbar\Utility\Xml;
-
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 /**
  * ItemsController
  */
-class ItemsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class ItemsController extends ActionController
 {
 
     /**
@@ -33,7 +32,7 @@ class ItemsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $itemsRepository = NULL;
 
     public function initializeSearchbarLinkAction(){
-        //check if XmlDefiniiton is Written to TempFile
+        //check if XmlDefinition is written to TempFile
         Xml::writeSearchBarDefinitionFile( $this->settings );
     }
 
@@ -44,7 +43,7 @@ class ItemsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function searchbarLinkAction()
     {
-        $linkToSearchDefiniton = Xml::getLinkToXmlDefinition( $this->settings );
-         $this->view->assign('linkToSearchDefiniton', $linkToSearchDefiniton);
+        $linkToSearchDefinition = Xml::getLinkToXmlDefinition( $this->settings );
+         $this->view->assign('linkToSearchDefinition', $linkToSearchDefinition);
     }
 }

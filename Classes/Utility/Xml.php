@@ -24,10 +24,10 @@ class Xml
 	const PATH = 'typo3temp' . DIRECTORY_SEPARATOR . 'tx_searchbar' . DIRECTORY_SEPARATOR;
 
 	/**
-	 * Returns an absoulte Link to the XML Definition of the SearchBar
+	 * Returns an absolute Link to the XML Definition of the SearchBar
 	 *
 	 * @param  array $pluginSettings an array with Plugin Settings
-	 * @return string               absoulte URL to the Searchbar XML Definition
+	 * @return string  absolute URL to the Searchbar XML Definition
 	 */
 	public static function getLinkToXmlDefinition( array $pluginSettings )
 	{

@@ -14,8 +14,8 @@ namespace SvenJuergens\Searchbar\Eid;
  * The TYPO3 project - inspiring people to share!
  */
 
+use SvenJuergens\Searchbar\Domain\Model\Items;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Frontend\Utility\EidUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
 
@@ -26,7 +26,6 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use SvenJuergens\Searchbar\Domain\Repository\ItemsRepository;
-use SvenJuergens\Searchbar\Eid\MainEid;
 
 class MainEid {
 
@@ -39,6 +38,9 @@ class MainEid {
 
     public $extensionConfiguration;
 
+    /**
+     * MainEid constructor.
+     */
     public function __construct(){
 
         EidUtility::initTCA();
@@ -70,6 +72,9 @@ class MainEid {
         }
     }
 
+    /**
+     *
+     */
     public function main() {
         // get record
         $row = $this->getRecords( $this->query[0] );
@@ -85,13 +90,16 @@ class MainEid {
         $this->getRedirect( $row->getFirst() );
     }
 
-    public function getRedirect( $row ) {
+    /**
+     * @param Items $row
+     */
+    public function getRedirect($row) {
 
         unset($this->query['0']);
         $urlPart = '';
 
         if ($row->getItemtype() == self::TYPE_TYPOSCRIPT) {
-            $urlPart = $this->getTypoScriptCode($row, $this->query);
+            $urlPart = $this->getTypoScriptCode($row);
         } elseif ($row->getItemtype() == self::TYPE_NORMAL) {
             $urlPart = implode(
                 $row->getGlue(),
@@ -120,11 +128,16 @@ class MainEid {
         HttpUtility::redirect( $url );
     }
 
+    /**
+     * @param Items $row
+     * @return mixed
+     */
     public function getTypoScriptCode(&$row) {
         $typoScriptCode = str_replace(
-                                            '###INPUT###',
-                                            implode($row->getGlue(), $this->query),
-                                            $row->getTyposcript());
+            '###INPUT###',
+            implode($row->getGlue(), $this->query),
+            $row->getTyposcript()
+        );
 
         $TSparserObject = GeneralUtility::makeInstance( TypoScriptParser::class );
         $TSparserObject->parse( $typoScriptCode );
@@ -132,18 +145,19 @@ class MainEid {
         $contentObject = GeneralUtility::makeInstance( ContentObjectRenderer::class );
         $contentObject->start(array(), '');
 
-        $tsfeClassName = GeneralUtility::makeInstance( TypoScriptFrontendController::class );
-        $GLOBALS['TSFE'] = new $tsfeClassName( $GLOBALS['TYPO3_CONF_VARS'], 0, '');
+        $TSFEClassName = GeneralUtility::makeInstance( TypoScriptFrontendController::class );
+        $GLOBALS['TSFE'] = new $TSFEClassName( $GLOBALS['TYPO3_CONF_VARS'], 0, '');
         return $contentObject->cObjGet( $TSparserObject->setup );
     }
 
-    public function getRecords( $hotkey = null ) {
+    public function getRecords( $hotKey = null ) {
         $objectManager = GeneralUtility::makeInstance( ObjectManager::class );
+        /** @var ItemsRepository $Repository */
         $Repository = $objectManager->get( ItemsRepository::class );
-        if( $hotkey !== null ){
-            $items = $Repository->findByHotkey($hotkey);
+        if( $hotKey !== null ){
+            $items = $Repository->findByHotKey($hotKey);
         }else{
-            $items = $Repository->findAllHotkeys();
+            $items = $Repository->findAllHotKeys();
        }
         return $items;
     }
