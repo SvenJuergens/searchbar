@@ -21,55 +21,58 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 class Xml
 {
-	const PATH = 'typo3temp' . DIRECTORY_SEPARATOR . 'tx_searchbar' . DIRECTORY_SEPARATOR;
+    const PATH_TO_TEMP_FOLDER = 'typo3temp' . DIRECTORY_SEPARATOR . 'tx_searchbar' . DIRECTORY_SEPARATOR;
 
-	/**
-	 * Returns an absolute Link to the XML Definition of the SearchBar
-	 *
-	 * @param  array $pluginSettings an array with Plugin Settings
-	 * @return string  absolute URL to the Searchbar XML Definition
-	 */
-	public static function getLinkToXmlDefinition( array $pluginSettings )
-	{
-		$fileName = self::getFileName( $pluginSettings );
-		return GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . self::PATH . $fileName;
-	}
+    /**
+     * Returns an absolute Link to the XML Definition of the SearchBar
+     *
+     * @param  array $pluginSettings an array with Plugin Settings
+     * @return string  absolute URL to the Searchbar XML Definition
+     */
+    public static function getLinkToXmlDefinition(array $pluginSettings)
+    {
+        $fileName = self::getFileName($pluginSettings);
+        return GeneralUtility::getIndpEnv('TYPO3_SITE_URL') . self::PATH_TO_TEMP_FOLDER . $fileName;
+    }
 
-	public static function writeSearchBarDefinitionFile( $pluginSettings )
-	{
-		$path = PATH_site .  self::PATH;
-		$fileName = self::getFileName( $pluginSettings );
+    public static function writeSearchBarDefinitionFile($pluginSettings)
+    {
+        $path = PATH_site . self::PATH_TO_TEMP_FOLDER;
+        $fileName = self::getFileName($pluginSettings);
 
-		if( is_file( $path . $fileName) ){
-			return;
-		}
-		$templateFile = GeneralUtility::getFileAbsFileName( 'EXT:searchbar/Resources/Private/Templates/SearchBarDefinitonFile.xml' );
-		$view = GeneralUtility::makeInstance( StandaloneView::class );
-		$view->setTemplatePathAndFilename( $templateFile );
+        if (is_file($path . $fileName)) {
+            return;
+        }
+        $pathToTemplate = 'EXT:searchbar/Resources/Private/Templates/SearchBarDefinitonFile.xml';
+        $templateFile = GeneralUtility::getFileAbsFileName($pathToTemplate);
+        $view = GeneralUtility::makeInstance(StandaloneView::class);
+        $view->setTemplatePathAndFilename($templateFile);
 
- 		$defaultImagePath = GeneralUtility::getIndpEnv(TYPO3_SITE_URL) .  ExtensionManagementUtility::siteRelPath('searchbar') . 'Resources/Public/Icons/';
+        $typo3SiteUrl = GeneralUtility::getIndpEnv('TYPO3_SITE_URL');
+        $extensionPath =  ExtensionManagementUtility::siteRelPath('searchbar') . 'Resources/Public/Icons/';
+        $defaultImagePath = $typo3SiteUrl . $extensionPath;
 
-		$view->assignMultiple( array(
-			'searchBarLink' => GeneralUtility::getIndpEnv(TYPO3_SITE_URL) . 'index.php?eID=searchbar&q={searchTerms}',
-			'settings' => $pluginSettings,
-		            'defaultJpg' => $defaultImagePath . 'typo3-logo.jpg',
-		            'defaultPng' => $defaultImagePath . 'typo3-logo.png'
-		));
+        $view->assignMultiple([
+            'searchBarLink' => $typo3SiteUrl . 'index.php?eID=searchbar&q={searchTerms}',
+            'settings' => $pluginSettings,
+            'defaultJpg' => $defaultImagePath . 'typo3-logo.jpg',
+            'defaultPng' => $defaultImagePath . 'typo3-logo.png'
+        ]);
 
-		self::createDir( $path );
-		GeneralUtility::writeFile( $path . $fileName, $view->render() );
-	}
+        self::createDir($path);
+        GeneralUtility::writeFile($path . $fileName, $view->render());
+    }
 
-	public static function getFileName( array $pluginSettings)
-	{
-		return sha1( implode( ',', $pluginSettings) ) . '.xml';
-	}
+    public static function getFileName(array $pluginSettings)
+    {
+        return sha1(implode(',', $pluginSettings)) . '.xml';
+    }
 
 
-	public static function createDir( $path ){
-
-		if( !is_dir( $path ) ){
-			GeneralUtility::mkdir( $path );
-		}
-	}
+    public static function createDir($path)
+    {
+        if (!is_dir($path)) {
+            GeneralUtility::mkdir($path);
+        }
+    }
 }

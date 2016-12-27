@@ -16,6 +16,7 @@ namespace SvenJuergens\Searchbar\Eid;
 
 use SvenJuergens\Searchbar\Domain\Model\Items;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Frontend\Utility\EidUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
 
@@ -27,7 +28,8 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use SvenJuergens\Searchbar\Domain\Repository\ItemsRepository;
 
-class MainEid {
+class MainEid
+{
 
     const TYPE_NORMAL     = 0;
     const TYPE_TYPOSCRIPT = 1;
@@ -41,20 +43,20 @@ class MainEid {
     /**
      * MainEid constructor.
      */
-    public function __construct(){
-
+    public function __construct()
+    {
         EidUtility::initTCA();
 
         $this->extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['searchbar']);
-        $this->query = htmlspecialchars( GeneralUtility::_GET('q') );
+        $this->query = htmlspecialchars(GeneralUtility::_GET('q'));
         if (empty($this->query)) {
             $value = GeneralUtility::_GET('tx_searchbarfrontend_pi1');
             if (is_array($value)) {
-                $this->query = htmlspecialchars( $value['q'] );
+                $this->query = htmlspecialchars($value['q']);
             }
         }
         //Explode Array to Hotkey and searchword
-        $this->query = GeneralUtility::trimExplode(' ', $this->query, TRUE);
+        $this->query = GeneralUtility::trimExplode(' ', $this->query, true);
 
         //check if we should show the help / Overview of all Hotkeys
         if (isset($this->query[0]) && strtolower($this->query[0]) == 'help') {
@@ -75,25 +77,26 @@ class MainEid {
     /**
      *
      */
-    public function main() {
+    public function main()
+    {
         // get record
-        $row = $this->getRecords( $this->query[0] );
-        if( $row->count()  === 0 && $this->extensionConfiguration['useDefaultHotKey'] == 1 ){
-            $temp = array( htmlspecialchars( $this->extensionConfiguration['defaultHotKey'] ) );
-            $this->query = array_merge( $temp, $this->query );
-            $row = $this->getRecords( $this->query[0] );
+        $row = $this->getRecords($this->query[0]);
+        if ($row->count() === 0 && $this->extensionConfiguration['useDefaultHotKey'] == 1) {
+            $temp = [htmlspecialchars($this->extensionConfiguration['defaultHotKey'])];
+            $this->query = array_merge($temp, $this->query);
+            $row = $this->getRecords($this->query[0]);
         }
-
-        if ( $row->count()  === 0 ) {
+        if ($row->count() === 0) {
             $this->showHelp();
         }
-        $this->getRedirect( $row->getFirst() );
+        $this->getRedirect($row->getFirst());
     }
 
     /**
      * @param Items $row
      */
-    public function getRedirect($row) {
+    public function getRedirect($row)
+    {
 
         unset($this->query['0']);
         $urlPart = '';
@@ -106,7 +109,7 @@ class MainEid {
                 $this->query
             );
         }
-        if (strpos($row->getSearchurl(), '###SEARCHWORD###') !== FALSE) {
+        if (strpos($row->getSearchurl(), '###SEARCHWORD###') !== false) {
             $url = str_replace(
                 '###SEARCHWORD###',
                 $urlPart,
@@ -117,67 +120,70 @@ class MainEid {
         }
 
         if ($row->getItemtype() == self::TYPE_FUNCTIONS) {
-            $classConfig = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][ $row->getAdditionalfunctions() ];
-            if( isset($classConfig['namespaceOfClass']) && !empty($classConfig['namespaceOfClass'])){
-                if(class_exists($classConfig['namespaceOfClass'])){
-                    $userfile = GeneralUtility::makeInstance( $classConfig['namespaceOfClass'] );
-                    $url = $userfile->execute( $row, $this->query );
+            $classConfig = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'][$row->getAdditionalfunctions()];
+            if (isset($classConfig['namespaceOfClass']) && !empty($classConfig['namespaceOfClass'])) {
+                if (class_exists($classConfig['namespaceOfClass'])) {
+                    $userfile = GeneralUtility::makeInstance($classConfig['namespaceOfClass']);
+                    $url = $userfile->execute($row, $this->query);
                 }
             }
         }
-        HttpUtility::redirect( $url );
+        HttpUtility::redirect($url);
     }
 
     /**
      * @param Items $row
      * @return mixed
      */
-    public function getTypoScriptCode(&$row) {
+    public function getTypoScriptCode(&$row)
+    {
         $typoScriptCode = str_replace(
             '###INPUT###',
             implode($row->getGlue(), $this->query),
             $row->getTyposcript()
         );
 
-        $TSparserObject = GeneralUtility::makeInstance( TypoScriptParser::class );
-        $TSparserObject->parse( $typoScriptCode );
+        $TSparserObject = GeneralUtility::makeInstance(TypoScriptParser::class);
+        $TSparserObject->parse($typoScriptCode);
 
-        $contentObject = GeneralUtility::makeInstance( ContentObjectRenderer::class );
+        $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
         $contentObject->start(array(), '');
 
-        $TSFEClassName = GeneralUtility::makeInstance( TypoScriptFrontendController::class );
-        $GLOBALS['TSFE'] = new $TSFEClassName( $GLOBALS['TYPO3_CONF_VARS'], 0, '');
-        return $contentObject->cObjGet( $TSparserObject->setup );
+        $TSFEClassName = GeneralUtility::makeInstance(TypoScriptFrontendController::class);
+        $GLOBALS['TSFE'] = new $TSFEClassName($GLOBALS['TYPO3_CONF_VARS'], 0, '');
+        return $contentObject->cObjGet($TSparserObject->setup);
     }
 
-    public function getRecords( $hotKey = null ) {
-        $objectManager = GeneralUtility::makeInstance( ObjectManager::class );
+    public function getRecords($hotKey = null)
+    {
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         /** @var ItemsRepository $Repository */
-        $Repository = $objectManager->get( ItemsRepository::class );
-        if( $hotKey !== null ){
+        $Repository = $objectManager->get(ItemsRepository::class);
+        if ($hotKey !== null) {
             $items = $Repository->findByHotKey($hotKey);
-        }else{
+        } else {
             $items = $Repository->findAllHotKeys();
-       }
+        }
         return $items;
     }
 
-    public function showHelp() {
+    public function showHelp()
+    {
 
-        if ( $this->extensionConfiguration['showHelp'] != 1 ) {
+        if ($this->extensionConfiguration['showHelp'] != 1) {
             return;
         }
-
         $items = $this->getRecords();
-        $templateFile = GeneralUtility::getFileAbsFileName( $this->extensionConfiguration['helpTemplateFile'] );
-        $view = GeneralUtility::makeInstance( StandaloneView::class );
-        $view->setTemplatePathAndFilename( $templateFile );
+        $templateFile = GeneralUtility::getFileAbsFileName($this->extensionConfiguration['helpTemplateFile']);
+        $view = GeneralUtility::makeInstance(StandaloneView::class);
+        $view->setTemplatePathAndFilename($templateFile);
 
-        $view->assign( 'items', $items );
+        $view->assign('items', $items);
         echo $view->render();
+        exit;
     }
-
 }
+
 // Make instance:
-$eid = GeneralUtility::makeInstance( MainEid::class );
+$eid = GeneralUtility::makeInstance(MainEid::class);
 $eid->main();

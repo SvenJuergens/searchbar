@@ -4,8 +4,8 @@
 		<header/>
 		<body>
 			<trans-unit id="pi1_title" xml:space="preserve" approved="yes">
-				<source>Add a Browser Search Bar</source>
-				<target>Erzeuge eine Browser Search Bar</target>
+				<source>Universal SearchBar</source>
+				<target>Universal SearchBar</target>
 			</trans-unit>
 			<trans-unit id="pi1_plus_wiz_description" xml:space="preserve" approved="yes">
 				<source>add a link for setting a Search Bar</source>

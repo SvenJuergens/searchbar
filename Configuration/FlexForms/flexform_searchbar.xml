@@ -13,9 +13,6 @@
                     <settings.pluginName>
                         <TCEforms>
                             <config>
-                                <type_t3dev>input</type_t3dev>
-                                <size></size>
-                                <max></max>
                                 <type>input</type>
                             </config>
                             <label>LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.field_PluginName</label>
@@ -24,9 +21,6 @@
                     <settings.pluginDescription>
                         <TCEforms>
                             <config>
-                                <type_t3dev>input</type_t3dev>
-                                <size></size>
-                                <max></max>
                                 <type>input</type>
                             </config>
                             <label>LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.field_PluginDescription
@@ -50,28 +44,6 @@
                             </config>
                         </TCEforms>
                     </settings.pluginIcon>
-                    <settings.contentProviderText>
-                        <TCEforms>
-                            <exclude>0</exclude>
-                            <label>Content:</label>
-                            <config>
-                                <type>text</type>
-                                <default>Click at ###LINK###</default>
-                            </config>
-                        </TCEforms>
-                    </settings.contentProviderText>
-
-                    <settings.linkname>
-                        <TCEforms>
-                            <exclude>0</exclude>
-                            <label>Linkname:</label>
-                            <config>
-                                <type>input</type>
-                                <default>LINKNAME</default>
-                            </config>
-                        </TCEforms>
-                    </settings.linkname>
-
                 </el>
             </ROOT>
         </sDEF>

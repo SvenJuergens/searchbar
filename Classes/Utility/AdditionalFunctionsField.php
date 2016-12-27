@@ -1,5 +1,6 @@
 <?php
 namespace SvenJuergens\Searchbar\Utility;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -12,8 +13,10 @@ namespace SvenJuergens\Searchbar\Utility;
  *
  * The TYPO3 project - inspiring people to share!
  */
-class AdditionalFunctionsField {
-    public function main(&$params, &$pObj) {
+class AdditionalFunctionsField
+{
+    public function main(&$params, &$pObj)
+    {
         if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'])) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['searchbar']['additionalFunctions'] as $class => $registrationInformation) {
                 $title = isset($registrationInformation['title']) ? htmlspecialchars($registrationInformation['title']) : $class;

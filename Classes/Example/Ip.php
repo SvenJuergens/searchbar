@@ -2,6 +2,7 @@
 namespace SvenJuergens\Searchbar\Example;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -14,7 +15,8 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  *
  * The TYPO3 project - inspiring people to share!
  */
-class Ip{
+class Ip
+{
     public function execute( &$row, &$searchEngineInput){
         echo 'Your IP: ' . PHP_EOL . GeneralUtility::getIndpEnv('REMOTE_ADDR');
         exit;
