@@ -6,12 +6,37 @@
         <sDEF type="array">
             <ROOT type="array">
                 <TCEforms type="array">
-                    <sheetTitle>LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.sheet_general</sheetTitle>
+                    <sheetTitle>LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.sheet_general generall</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el type="array">
+                    <switchableControllerActions>
+                        <TCEforms>
+                            <label>LLL:EXT:news/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">Bitte wählen</numIndex>
+                                        <numIndex index="1">Items->wrongFlexFormConfig</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.news_list SearchbarLink</numIndex>
+                                        <numIndex index="1">Items->searchBarLink</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.news_listOnly FrontEnd Suche</numIndex>
+                                        <numIndex index="1">Items->searchBarFrontEnd</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </switchableControllerActions>
                     <settings.pluginName>
                         <TCEforms>
+                            <displayCond><![CDATA[FIELD:switchableControllerActions:=:Items->searchBarLink]]></displayCond>
                             <config>
                                 <type>input</type>
                             </config>
@@ -20,6 +45,7 @@
                     </settings.pluginName>
                     <settings.pluginDescription>
                         <TCEforms>
+                            <displayCond><![CDATA[FIELD:switchableControllerActions:=:Items->searchBarLink]]></displayCond>
                             <config>
                                 <type>input</type>
                             </config>
@@ -29,7 +55,7 @@
                     </settings.pluginDescription>
                     <settings.pluginIcon>
                         <TCEforms>
-                            <exclude>1</exclude>
+                            <displayCond><![CDATA[FIELD:switchableControllerActions:=:Items->searchBarLink]]></displayCond>
                             <label>LLL:EXT:searchbar/Resources/Private/Language/locallang_db.xlf:tt_content.pi_flexform.field_PluginIcon</label>
                             <config>
                                 <type>group</type>

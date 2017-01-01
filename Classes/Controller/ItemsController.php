@@ -32,7 +32,7 @@ class ItemsController extends ActionController
      */
     protected $itemsRepository = null;
 
-    public function initializeSearchbarLinkAction()
+    public function initializeSearchBarLinkAction()
     {
         //check if XmlDefinition is written to TempFile
         Xml::writeSearchBarDefinitionFile($this->settings);
@@ -43,9 +43,30 @@ class ItemsController extends ActionController
      *
      * @return void
      */
-    public function searchbarLinkAction()
+    public function searchBarLinkAction()
     {
         $linkToSearchDefinition = Xml::getLinkToXmlDefinition($this->settings);
         $this->view->assign('linkToSearchDefinition', $linkToSearchDefinition);
+    }
+
+    /**
+     * Display a searchBarFrontEnd
+     *
+     * @return void
+     */
+    public function searchBarFrontEndAction()
+    {
+        $items = $this->itemsRepository->findAllHotKeys();
+        $this->view->assign('items', $items);
+    }
+
+    /**
+     * something went wrong in FleForm Config
+     *
+     * @return void
+     */
+    public function wrongFlexFormConfigAction()
+    {
+        $this->view->assign('items', '');
     }
 }

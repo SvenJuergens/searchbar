@@ -1,0 +1,34 @@
+<html data-namespace-typo3-fluid="true"
+      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers"
+>
+    <form action="index.php" method="GET">
+        <input name="eID" value="searchbar" type="hidden"/>
+        <label><f:translate key="searchBarFrontendInputLabel" /></label>
+        <input name="tx_searchbarfrontend_pi1[q]" value="t3x http://typo3.org/extensions/repository/download/searchbar_t3xtozip/1.0.0/t3x/" type="text" class="tx_searchbarfrontend_pi1_input"/>
+        <input type="submit" value="{f:translate(key:'searchBarFrontendSubmitButton')}">
+    </form>
+
+    <f:if condition="{settings.searchBarFrontendShowItems}">
+        <table class="table table-striped" >
+            <thead>
+            <tr>
+                <th><f:translate key="tx_searchbar_domain_model_items.title" /></th>
+                <th><f:translate key="tx_searchbar_domain_model_items.hotkey" /></th>
+                <th><f:translate key="tx_searchbar_domain_model_items.searchurl" /></th>
+                <th><f:translate key="tx_searchbar_domain_model_items.typoscript" /></th>
+            </tr>
+            </thead>
+            <tbody>
+            <f:for each="{items}" as="item">
+                <tr>
+                    <td>{item.title}</td>
+                    <td>{item.hotkey}</td>
+                    <td>{item.searchurl}</td>
+                    <td><pre class="prettyprint">{item.typoscript}</pre></td>
+                </tr>
+            </f:for>
+            </tbody>
+        </table>
+    </f:if>
+
+</html>

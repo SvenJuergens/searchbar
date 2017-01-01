@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-04-09T10:57:56Z" product-name="">
+		<header/>
+		<body>
+			<trans-unit id="searchBarFrontendInputLabel" xml:space="preserve" approved="yes">
+				<source>Go</source>
+				<target>Los</target>
+			</trans-unit>
+			<trans-unit id="searchBarFrontendSubmitButton" xml:space="preserve" approved="yes">
+				<source>Go</source>
+				<target>Los</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

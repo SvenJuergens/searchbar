@@ -30,6 +30,12 @@
 			<trans-unit id="tx_searchbar_domain_model_items.hideinfe">
 				<source>Hideinfe</source>
 			</trans-unit>
+			<trans-unit id="searchBarFrontendInputLabel">
+				<source>Go</source>
+			</trans-unit>
+			<trans-unit id="searchBarFrontendSubmitButton">
+				<source>Go</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
