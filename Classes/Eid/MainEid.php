@@ -149,8 +149,13 @@ class MainEid
         $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
         $contentObject->start(array(), '');
 
-        $TSFEClassName = GeneralUtility::makeInstance(TypoScriptFrontendController::class);
-        $GLOBALS['TSFE'] = new $TSFEClassName($GLOBALS['TYPO3_CONF_VARS'], 0, '');
+        /** @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController $typoScriptFrontendController */
+        $GLOBALS['TSFE'] = GeneralUtility::makeInstance(
+            TypoScriptFrontendController::class,
+            $GLOBALS['TYPO3_CONF_VARS'],
+            1, // page ID
+            0 // pageType.
+        );
         return $contentObject->cObjGet($TSparserObject->setup);
     }
 
