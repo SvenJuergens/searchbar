@@ -11,6 +11,10 @@
 				<source>Go</source>
 				<target>Los</target>
 			</trans-unit>
+			<trans-unit id="wrongFlexFormConfig" xml:space="preserve" approved="yes">
+				<source>There is an error in your PluginConfiguration</source>
+				<target>Da gibt es ein Problem mit der PluginConfiguration.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

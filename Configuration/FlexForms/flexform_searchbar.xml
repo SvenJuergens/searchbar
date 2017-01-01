@@ -12,22 +12,22 @@
                 <el type="array">
                     <switchableControllerActions>
                         <TCEforms>
-                            <label>LLL:EXT:news/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode</label>
+                            <label>LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode</label>
                             <onChange>reload</onChange>
                             <config>
                                 <type>select</type>
                                 <renderType>selectSingle</renderType>
                                 <items>
                                     <numIndex index="0">
-                                        <numIndex index="0">Bitte wählen</numIndex>
+                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.pleaseChoose</numIndex>
                                         <numIndex index="1">Items->wrongFlexFormConfig</numIndex>
                                     </numIndex>
                                     <numIndex index="1">
-                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.news_list SearchbarLink</numIndex>
+                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.searchBarLink</numIndex>
                                         <numIndex index="1">Items->searchBarLink</numIndex>
                                     </numIndex>
                                     <numIndex index="2">
-                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.mode.news_listOnly FrontEnd Suche</numIndex>
+                                        <numIndex index="0">LLL:EXT:searchbar/Resources/Private/Language/locallang_be.xlf:flexforms_general.frontendSearchBar</numIndex>
                                         <numIndex index="1">Items->searchBarFrontEnd</numIndex>
                                     </numIndex>
                                 </items>

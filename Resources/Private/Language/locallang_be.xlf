@@ -21,6 +21,18 @@
 			<trans-unit id="defaultHotKey" xml:space="preserve">
 				<source>Default Hotkey: For a Default SearchEngine you don't need to type in the HotKey</source>
 			</trans-unit>
+			<trans-unit id="flexforms_general.mode" xml:space="preserve">
+				<source>What to display</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.pleaseChoose" xml:space="preserve">
+				<source>Please Choose</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.searchBarLink" xml:space="preserve">
+				<source>SearchBar Link</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.frontendSearchBar" xml:space="preserve">
+				<source>FrontEnd SearchBar</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

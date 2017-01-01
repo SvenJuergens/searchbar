@@ -36,6 +36,9 @@
 			<trans-unit id="searchBarFrontendSubmitButton">
 				<source>Go</source>
 			</trans-unit>
+			<trans-unit id="wrongFlexFormConfig">
+				<source>There is an error in your PluginConfiguration</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
